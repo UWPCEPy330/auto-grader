@@ -2,6 +2,8 @@ import subprocess
 import os
 import time
 import sys
+import urllib.request
+import urllib.error
 
 # The server for cloning student files. For example, you usually clone from
 # the server "https://github.com"
@@ -22,6 +24,14 @@ os.makedirs(os.path.join("reports", project_name, "good"), exist_ok=True)
 os.makedirs(os.path.join("reports", project_name, "bad"), exist_ok=True)
 
 for user in users:
+    # If this is an http git server
+    if 'http' in git_server:
+        # Then confirm that the repo exists before trying to clone it
+        try:
+            response = urllib.request.urlopen("/".join([git_server, user, project_name]))
+        except urllib.error.HTTPError:
+            continue
+
     # The path to this user's homework submission
     repo_path = os.path.join('users', user, project_name)
 
