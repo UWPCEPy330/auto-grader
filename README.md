@@ -35,4 +35,4 @@ This reporting isn't completely perfect, so if a student shows up in the `bad` d
 
 ## Security Notice
 
-By running this script you're giving your students arbitrary execution under your user on your machine. It might be wise to run this script under a new user on your machine, or within a virtual machine. In this case, be sure to set up ssh credentials for this new user.
+By running this script you're giving your students arbitrary execution under your user on your machine. It might be wise to run this script under a new user on your machine, or within a virtual machine.
