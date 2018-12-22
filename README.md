@@ -12,14 +12,10 @@ Suppose you have:
     * github.com/student1
     * github.com/student2
     * github.com/student3
-  * an assignment named my-assignment
+  * an assignment named echo-server
   * that each student has their own repo:
-    * github.com/student1/my-assignment
+    * github.com/student1/echo-server
     * etc.
-  * that my-assignment has a directory named `tests` with a test file named
-    `tests.py`
-  * that you can run the project's tests with `python tests/test.py`
-  * that you have created a `users.txt` file alongside this script
   * that `users.txt` contains the github usernames of your students:
     ```
     student1
@@ -27,23 +23,15 @@ Suppose you have:
     student3
     ```
 
-Given the above, you would run the script with `python main.py my-assignment users.txt`
+Given the above, you would run the script with `python main.py echo-server users.txt`
 
 Successful execution of this script would create the following directories:
-  * `reports/my-assignment/good`
-  * `reports/my-assignment/bad`
+  * `reports/echo-server/good`
+  * `reports/echo-server/bad`
 
-The good and bad report directories would be populated with the results of the students' tests.
+The good and bad report directories would be populated with the results of the students' tests. Students who failed some tests would have reports in the `bad` directory; students who passed all tests would have reports generated in the `good` directory.
 
-The contents and path of the `users.txt` file and also the name of the assignment repository are configurable without code changes. You can change the server that repositories are cloned from, as well as make other changes, by editing the code.
-
-## Example
-
-For a concrete example, you can run this script on its own home repository:
-
-`python main.py PythonGrader users.txt.example`
-
-This will clone [https://github.com/JASchilz/PythonGrader](https://github.com/JASchilz/PythonGrader) into `users/jaschilz`, run `tests/test.py` and produce output in `reports/PythonGrader`. Specifically, the report generated will be in `reports/PythonGrader/bad/jaschilz.txt` because `tests/test.py` contains a failing test.
+This reporting isn't completely perfect, so if a student shows up in the `bad` directory then you should investigate their code an confirm that they really do have mistakes.
 
 ## Security Notice
 
